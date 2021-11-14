@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/main.css">
+<meta charset="UTF-8">
+<title>space</title>
+</head>
+<body onload="onLoad();">
+<script type="text/javascript" src="js/animate.js"></script>
+<div id="space" onclick="onClickSpace(event)">
+    <img src="media/spaceship.png" id="spaceShip">
+    <img src="media/star.png" id="star">
+</div>
+<div>
+    <p>Energy: <span id="energy"></span></p><span id="energy_statement" style="color: red;"></span>
+    <p>Score: <span id="score"></span></p><span id="star_statement" style="color: green;"></span>
+</div>
+<div>
+    <input id="speed" type="range" min="1" max="5" onchange="onSpeedChange(this.value)"><span>Speed(difficulty)</span>
+</div>
+</body>
+</html> 
