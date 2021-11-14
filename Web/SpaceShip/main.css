@@ -1,0 +1,19 @@
+#spaceShip{
+	position: absolute;
+	top: 0.0px;
+	left: 0.0px;
+	transform: rotate(0deg);
+}
+
+#space{
+	height: 0px;/*it will be changed when load*/
+  	background-color: black;
+}
+
+#star{
+	width: 29px;
+	height: 29px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
