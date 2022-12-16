@@ -4,6 +4,8 @@ var gameScore=0;//游戏得分
 var dir=0;//左上右下代表1、2、3、4.初始值0代表无方向
 var grid_btn_pos=0;//用于作为格子元素的id区分的标号
 var free_grids=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];//存放空闲格子的编号。每次move后都得重新写入.用splice()进行删除.用push()添加
+var startCoords = {}, endCoords = {}; // for support touch screen
+
 function grid(value,pos,btn_pos,isMerge){//格子构造函数
 	this.value=value;//存放格子的值2的i次方(i>0).0代表无值
 	this.pos=pos;//存放grid_status中格子所在的下标
@@ -279,6 +281,30 @@ function gameStart(){
 		}
 		if(dir!=0&&(!isGameOver)){//按下正确的方向键并且游戏没有结束
 			move();
+		}
+	});
+	// support touch events for mobile devices
+	$(document.body).bind("touchstart", function(event) {
+	    startCoords = endCoords = event.originalEvent.targetTouches[0];
+	});
+	$(document.body).bind("touchmove", function(event) {
+	    endCoords = event.originalEvent.targetTouches[0];
+	});
+	$(document.body).bind("touchend", function(event) {
+		var offsetX = startCoords.pageX-endCoords.pageX;
+		var offsetY = startCoords.pageY-endCoords.pageY;
+		if(Math.abs(offsetX) > Math.abs(offsetY)){
+			// left or right
+			if(offsetX < 0)
+				dir = 1;
+			else
+				dir = 3;
+		}
+		else{
+			if(offsetY < 0)
+				dir = 2;
+			else
+				dir = 4;
 		}
 	});
 }
