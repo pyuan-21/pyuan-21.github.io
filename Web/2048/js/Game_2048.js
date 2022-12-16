@@ -318,7 +318,7 @@ window.mobileCheck = function() {
 };
 
 if(window.mobileCheck()){
-	alert("using mobile!");
+	$("#move_buttons").css("display", "block"); // for support mobile
 }
 
 gameStart();
