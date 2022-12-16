@@ -286,6 +286,7 @@ function gameStart(){
 	// support touch events for mobile devices
 	$(document.body).bind("touchstart", function(event) {
 	    startCoords = endCoords = event.originalEvent.targetTouches[0];
+	    alert("touchstart!");
 	});
 	$(document.body).bind("touchmove", function(event) {
 	    endCoords = event.originalEvent.targetTouches[0];
